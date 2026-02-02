@@ -1,4 +1,4 @@
-# Brief instructions on how to run the project locally (environment variables needed, etc.)
+# YouTube link to the demonstration video
 
 ## Lab 1 26W_CST8917 Serverless Applications
 
