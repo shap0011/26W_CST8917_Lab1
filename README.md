@@ -1,6 +1,6 @@
-# Brief instructions on how to run the project locally (environment variables needed, etc.)
+# Lab 1 26W_CST8917 Serverless Applications
 
-## Lab 1 26W_CST8917 Serverless Applications
+## Brief instructions on how to run the project locally (environment variables needed, etc.)
 
 ### Student: Olga Durham
 ### St#: 040687883
