@@ -47,3 +47,20 @@ Local storage was configured using Azurite by setting `AzureWebJobsStorage` to `
 ![Azurite storage emulator running locally in Visual Studio Code.](./screenshots/5-azurite-running.png)
 
 ## Run and Test the Function Locally
+
+The Azure Functions host was started locally using Azure Functions Core Tools.  
+The `HttpExample` function endpoint was generated at:
+
+`http://localhost:7071/api/HttpExample`
+
+The function was tested in a browser using a query string parameter:
+
+`http://localhost:7071/api/HttpExample?name=Azure`
+
+The response returned a personalized message, confirming the HTTP trigger works locally.
+
+*Core Tools running locally and exposing the HttpExample endpoint.*
+![Core Tools running locally and exposing the HttpExample endpoint.](./screenshots/6-func-start-endpoint.png)
+
+*Successful GET request to HttpExample using a query string parameter.*
+![Successful GET request to HttpExample using a query string parameter.](./screenshots/7-browser-test-azure.png)
