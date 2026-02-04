@@ -43,7 +43,7 @@ Local storage was configured using Azurite by setting `AzureWebJobsStorage` to `
 
 ## Start the Azurite Storage Emulator
 
-*Azurite storage emulator running locally in Visual Studio Code.*\
+*Figure 5: Azurite storage emulator running locally in Visual Studio Code.*\
 ![Azurite storage emulator running locally in Visual Studio Code.](./screenshots/5-azurite-running.png)
 
 ## Run and Test the Function Locally
@@ -59,10 +59,10 @@ The function was tested in a browser using a query string parameter:
 
 The response returned a personalized message, confirming the HTTP trigger works locally.
 
-*Core Tools running locally and exposing the HttpExample endpoint.*
+*Figure 6: Core Tools running locally and exposing the HttpExample endpoint.*
 ![Core Tools running locally and exposing the HttpExample endpoint.](./screenshots/6-func-start-endpoint.png)
 
-*Successful GET request to HttpExample using a query string parameter.*
+*Figure 7: Successful GET request to HttpExample using a query string parameter.*
 ![Successful GET request to HttpExample using a query string parameter.](./screenshots/7-browser-test-azure.png)
 
 ## Implement the Text Analyzer Function
@@ -74,20 +74,20 @@ After updating `function_app.py`, the local endpoint changed to:
 
 The function was tested locally using a query string parameter (`text`) and returned JSON analysis results.
 
-*TextAnalyzer code.*\
+*Figure 8: TextAnalyzer code.*\
 ![TextAnalyzer code.](./screenshots/8-text-analyzer-code.png)
 
-*TextAnalyzer endpoint.*\
+*Figure 9: TextAnalyzer endpoint.*\
 ![TextAnalyzer endpoint.](./screenshots/9-textanalyzer-endpoint.png)
 
-*TextAnalyzer response.*\
+*Figure 10: TextAnalyzer response.*\
 ![TextAnalyzer response.](./screenshots/10-textanalyzer-response.png)
 
 ## Sign in to Azure
 
 Visual Studio Code successfully connected to Azure, and the **Azure for Students** subscription was selected in the Azure extension.
 
-*Azure for Students subscription visible in Visual Studio Code, confirming successful Azure authentication.*\
+*Figure 11: Azure for Students subscription visible in Visual Studio Code, confirming successful Azure authentication.*\
 ![Confirming successful Azure authentication.](./screenshots/11-azure-for-students-selected.png)
 
 ## Create a Function App in Azure
@@ -97,7 +97,23 @@ The Function App was created using `Python 3.12`. When using the `consumption` p
 
 The resource creation process was monitored using the `Azure Activity Log`, and the Function App appeared successfully under the `Azure for Students` subscription.
 
-*Azure Function App successfully created and visible in Visual Studio Code.*\
+*Figure 12: Azure Function App successfully created and visible in Visual Studio Code.*\
 ![Function App created. Function App creation log.](./screenshots/12-function-app-created.png)
 
-## 
+## Deploy to Azure
+
+The function was deployed to the Azure Function App (`olga-func-lab1`) using the VS Code Azure Functions extension.  
+After deployment, the `TextAnalyzer` function was discovered successfully and appeared under the Function App in Azure.
+
+The deployed function was tested using the public HTTPS endpoint and returned the expected JSON analysis output.
+
+*Figure 13: TextAnalyzer function appears under the deployed Function App in Azure (trigger discovery successful).*\
+![TextAnalyzer function appears.](./screenshots/13-textanalyzer-visible.png)
+
+*Figure 14: Successful execution of TextAnalyzer from the Azure-hosted endpoint.*\
+![Successful execution of TextAnalyzer from the Azure-hosted endpoint.](./screenshots/14-textanalyzer-cloud-test.png)
+
+To ensure the Python v2 function was discovered correctly after deployment, worker indexing was enabled using an application setting in the Azure Portal.
+
+*Figure 15: Application setting AzureWebJobsFeatureFlags = EnableWorkerIndexing configured in the Azure Portal to enable worker indexing for Python v2 functions.*\
+![Worker indexing enabled](./screenshots/15-app-settings-worker-indexing.png)
