@@ -64,3 +64,23 @@ The response returned a personalized message, confirming the HTTP trigger works 
 
 *Successful GET request to HttpExample using a query string parameter.*
 ![Successful GET request to HttpExample using a query string parameter.](./screenshots/7-browser-test-azure.png)
+
+## Implement the Text Analyzer Function
+
+The default `HttpExample` function was replaced with a new HTTP-triggered function named `TextAnalyzer`.  
+After updating `function_app.py`, the local endpoint changed to:
+
+`http://localhost:7071/api/TextAnalyzer`
+
+The function was tested locally using a query string parameter (`text`) and returned JSON analysis results.
+
+*TextAnalyzer code.*
+![TextAnalyzer code.](./screenshots/8-text-analyzer-code.png)
+
+*TextAnalyzer endpoint.*
+![TextAnalyzer endpoint.](./screenshots/9-textanalyzer-endpoint.png)
+
+*TextAnalyzer response.*
+![TextAnalyzer response.](./screenshots/10-textanalyzer-response.png)
+
+## Sign in to Azure
