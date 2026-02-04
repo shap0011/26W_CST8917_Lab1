@@ -36,10 +36,10 @@ The HTTP-triggered function was executed locally and tested successfully using a
 
 ### Configure Local Storage
 
-Local storage was configured using Azurite for local development.  
-The `AzureWebJobsStorage` setting in `local.settings.json` was updated to use the development storage emulator.
+Local storage was configured using Azurite by setting `AzureWebJobsStorage` to `UseDevelopmentStorage=true` in `local.settings.json`. This allows the Azure Functions runtime to run locally without connecting to a real Azure Storage account.
 
-This configuration allows the Azure Functions runtime to manage logging and triggers locally without requiring a real Azure Storage account.
+*Figure 4: Local storage configured using Azurite via `UseDevelopmentStorage=true` in `local.settings.json`.*
+![Local storage configuration](./screenshots/4-local-settings-azurite.png)
 
-*Figure 4: Local storage configured using Azurite via `UseDevelopmentStorage=true`.*
-![Local storage configuration](./screenshots/4-local-storage-configuration.png)
+## Start the Azurite Storage Emulator
+
