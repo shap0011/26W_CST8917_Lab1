@@ -84,3 +84,8 @@ The function was tested locally using a query string parameter (`text`) and retu
 ![TextAnalyzer response.](./screenshots/10-textanalyzer-response.png)
 
 ## Sign in to Azure
+
+Visual Studio Code successfully connected to Azure, and the **Azure for Students** subscription was selected in the Azure extension.
+
+*Azure for Students subscription visible in Visual Studio Code, confirming successful Azure authentication.*\
+![Confirming successful Azure authentication.](./screenshots/11-azure-for-students-selected.png)
