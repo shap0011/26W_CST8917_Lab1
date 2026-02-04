@@ -74,13 +74,13 @@ After updating `function_app.py`, the local endpoint changed to:
 
 The function was tested locally using a query string parameter (`text`) and returned JSON analysis results.
 
-*TextAnalyzer code.*
+*TextAnalyzer code.*\
 ![TextAnalyzer code.](./screenshots/8-text-analyzer-code.png)
 
-*TextAnalyzer endpoint.*
+*TextAnalyzer endpoint.*\
 ![TextAnalyzer endpoint.](./screenshots/9-textanalyzer-endpoint.png)
 
-*TextAnalyzer response.*
+*TextAnalyzer response.*\
 ![TextAnalyzer response.](./screenshots/10-textanalyzer-response.png)
 
 ## Sign in to Azure
