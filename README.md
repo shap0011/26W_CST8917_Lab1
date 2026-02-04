@@ -7,14 +7,14 @@
 
 ---
 
-## Prerequisites
+## Part 1 & Part 2 - Prerequisites & Update Azure Functions Core Tools
 
 Required Software & Azure Functions Core Tools
 
 *Figure 1: Python 3.12.4; Azure Functions Core Tools 4.6.0*\
 ![Python 3.12.4; Azure Functions Core Tools 4.6.0](./screenshots/1-python-func-versions.png)
 
-## Local Function Project
+## Part 3 - Create the Local Function Project
 
 ### Create New Project
 
@@ -41,12 +41,12 @@ Local storage was configured using Azurite by setting `AzureWebJobsStorage` to `
 *Figure 4: Local storage configured using Azurite via `UseDevelopmentStorage=true` in `local.settings.json`.*\
 ![Local storage configuration](./screenshots/4-local-settings-azurite.png)
 
-## Start the Azurite Storage Emulator
+## Part 4 - Start the Azurite Storage Emulator
 
 *Figure 5: Azurite storage emulator running locally in Visual Studio Code.*\
 ![Azurite storage emulator running locally in Visual Studio Code.](./screenshots/5-azurite-running.png)
 
-## Run and Test the Function Locally
+## Part 5 - Run and Test the Function Locally
 
 The Azure Functions host was started locally using Azure Functions Core Tools.  
 The `HttpExample` function endpoint was generated at:
@@ -65,7 +65,7 @@ The response returned a personalized message, confirming the HTTP trigger works 
 *Figure 7: Successful GET request to HttpExample using a query string parameter.*
 ![Successful GET request to HttpExample using a query string parameter.](./screenshots/7-browser-test-azure.png)
 
-## Implement the Text Analyzer Function
+## Part 6 - Implement the Text Analyzer Function
 
 The default `HttpExample` function was replaced with a new HTTP-triggered function named `TextAnalyzer`.  
 After updating `function_app.py`, the local endpoint changed to:
@@ -83,14 +83,14 @@ The function was tested locally using a query string parameter (`text`) and retu
 *Figure 10: TextAnalyzer response.*\
 ![TextAnalyzer response.](./screenshots/10-textanalyzer-response.png)
 
-## Sign in to Azure
+## Part 7 - Sign in to Azure
 
 Visual Studio Code successfully connected to Azure, and the **Azure for Students** subscription was selected in the Azure extension.
 
 *Figure 11: Azure for Students subscription visible in Visual Studio Code, confirming successful Azure authentication.*\
 ![Confirming successful Azure authentication.](./screenshots/11-azure-for-students-selected.png)
 
-## Create a Function App in Azure
+## Part 8 - Create a Function App in Azure
 
 A new Azure Function App was created using the Azure Functions extension in Visual Studio Code with advanced configuration options.  
 The Function App was created using `Python 3.12`. When using the `consumption` plan, the operating system is automatically set to `Linux`.
@@ -100,7 +100,7 @@ The resource creation process was monitored using the `Azure Activity Log`, and 
 *Figure 12: Azure Function App successfully created and visible in Visual Studio Code.*\
 ![Function App created. Function App creation log.](./screenshots/12-function-app-created.png)
 
-## Deploy to Azure
+## Part 9 - Deploy to Azure
 
 The function was deployed to the Azure Function App (`olga-func-lab1`) using the VS Code Azure Functions extension.  
 After deployment, the `TextAnalyzer` function was discovered successfully and appeared under the Function App in Azure.
