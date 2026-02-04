@@ -89,3 +89,15 @@ Visual Studio Code successfully connected to Azure, and the **Azure for Students
 
 *Azure for Students subscription visible in Visual Studio Code, confirming successful Azure authentication.*\
 ![Confirming successful Azure authentication.](./screenshots/11-azure-for-students-selected.png)
+
+## Create a Function App in Azure
+
+A new Azure Function App was created using the Azure Functions extension in Visual Studio Code with advanced configuration options.  
+The Function App was created using `Python 3.12`. When using the `consumption` plan, the operating system is automatically set to `Linux`.
+
+The resource creation process was monitored using the `Azure Activity Log`, and the Function App appeared successfully under the `Azure for Students` subscription.
+
+*Azure Function App successfully created and visible in Visual Studio Code.*\
+![Function App created. Function App creation log.](./screenshots/12-function-app-created.png)
+
+## 
