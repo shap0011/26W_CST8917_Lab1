@@ -20,3 +20,5 @@ Azure Table Storage was considered but rejected due to its limited query capabil
 
 ### Cost Considerations
 Azure Cosmos DB offers a free tier that includes a limited amount of throughput and storage, making it suitable for student projects. The serverless pricing model further reduces cost by charging only for the database operations performed, with no charges when the database is idle. This pay-per-request model makes Cosmos DB cost-effective for low-traffic and experimental serverless applications.
+
+[<< Back to README.md](/README.md)
