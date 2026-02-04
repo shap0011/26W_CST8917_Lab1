@@ -103,7 +103,7 @@ The resource creation process was monitored using the `Azure Activity Log`, and 
 ## Part 9 - Deploy to Azure
 
 The function was deployed to the Azure Function App (`olga-func-lab1`) using the VS Code Azure Functions extension.  
-After deployment, the `TextAnalyzer` function was discovered successfully and appeared under the Function App in Azure.
+After deployment, the `TextAnalyzer` function was successfully discovered and appeared under the Function App in Azure.
 
 The deployed function was tested using the public HTTPS endpoint and returned the expected JSON analysis output.
 
