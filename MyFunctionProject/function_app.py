@@ -1,11 +1,15 @@
 # =============================================================================
 # IMPORTS - Libraries we need for our function
 # =============================================================================
+import os
+import uuid
 import azure.functions as func  # Azure Functions SDK - required for all Azure Functions
 import logging                  # Built-in Python library for printing log messages
 import json                     # Built-in Python library for working with JSON data
 import re                       # Built-in Python library for Regular Expressions (pattern matching)
 from datetime import datetime   # Built-in Python library for working with dates and times
+
+from azure.cosmos import CosmosClient
 
 # =============================================================================
 # CREATE THE FUNCTION APP
@@ -13,6 +17,28 @@ from datetime import datetime   # Built-in Python library for working with dates
 # This creates our Function App with anonymous access (no authentication required)
 # Think of this as the "container" that holds all our functions
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+def get_cosmos_container():
+    """
+    Creates a Cosmos DB container client using environment variables.
+    Required env vars:
+      - AZURE_COSMOS_CONNECTIONSTRING
+      - COSMOS_DATABASE_NAME
+      - COSMOS_CONTAINER_NAME
+    """
+    conn_str = os.environ.get("AZURE_COSMOS_CONNECTIONSTRING")
+    db_name = os.environ.get("COSMOS_DATABASE_NAME")
+    container_name = os.environ.get("COSMOS_CONTAINER_NAME")
+
+    if not conn_str or not db_name or not container_name:
+        raise ValueError(
+            "Missing Cosmos DB settings. Set AZURE_COSMOS_CONNECTIONSTRING, "
+            "COSMOS_DATABASE_NAME, and COSMOS_CONTAINER_NAME."
+        )
+
+    client = CosmosClient.from_connection_string(conn_str)
+    database = client.get_database_client(db_name)
+    return database.get_container_client(container_name)
 
 # =============================================================================
 # DEFINE THE TEXT ANALYZER FUNCTION
@@ -133,6 +159,31 @@ def TextAnalyzer(req: func.HttpRequest) -> func.HttpResponse:
                 "textPreview": text[:100] + "..." if len(text) > 100 else text
             }
         }
+        
+        # =====================================================================
+        # STEP 3.5: STORE RESULT IN COSMOS DB
+        # =====================================================================
+        record_id = str(uuid.uuid4())
+
+        document_to_store = {
+            "id": record_id,
+            "analysis": response_data["analysis"],
+            "metadata": response_data["metadata"],
+            "originalText": text
+        }
+
+        try:
+            container = get_cosmos_container()
+            container.create_item(body=document_to_store)
+            storage_status = "stored"
+        except Exception as e:
+            logging.error(f"Failed to store result in Cosmos DB: {e}")
+            storage_status = "failed"
+            response_data["storageError"] = str(e)
+
+        # Add id + status to the API response
+        response_data["id"] = record_id
+        response_data["storageStatus"] = storage_status
 
         # Return a successful HTTP response
         # json.dumps() converts Python dictionary to JSON string
