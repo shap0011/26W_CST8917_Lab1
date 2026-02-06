@@ -165,3 +165,15 @@ A database named `textanalyzer-db` and a container named `analysis-results` were
 
 ## Part 13 - Modify the Function to Store Results
 
+*Figure 19: Successfully installed azure-cosmos.*\
+![Successfully installed azure-cosmos](./screenshots/19-azure-cosmos-installed.png)
+
+The `TextAnalyzer` function was extended to store analysis results in `Azure Cosmos DB`.  
+Each request generates a unique identifier and persists the analysis output, metadata, and original text as a `JSON` document.  
+Local testing confirmed that results were successfully stored and visible in the Cosmos DB container.
+
+*Figure 20: Successful local execution of the `TextAnalyzer` function with analysis results stored in Azure Cosmos DB.*\
+![Local execution storing data](./screenshots/20-textanalyzer-local-store-success.png) 
+
+*Figure 21: Text Analyzer result successfully persisted as a JSON document in Azure Cosmos DB.*\
+![Stored document in Cosmos DB](./screenshots/21-cosmosdb-stored-document.png)
