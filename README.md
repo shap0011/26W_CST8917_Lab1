@@ -191,3 +191,17 @@ The endpoint supports an optional `limit` query parameter (default value: 10) an
 
 *Figure 24: GetAnalysisHistory endpoint tested with the limit query parameter.*\
 ![History endpoint with limit](./screenshots/24-history-endpoint-limit.png)
+
+## Part 15 - Deploy and Configure in Azure
+
+The `Azure Function App` was configured with `Azure Cosmos DB` connection settings using application settings in the Azure Portal.
+After redeploying the updated function code, both the `TextAnalyzer` and `GetAnalysisHistory` endpoints were tested in Azure and successfully confirmed to store and retrieve analysis results.
+
+*Figure 25: Azure Function App application settings configured with Cosmos DB connection details.*\
+![Azure application settings](./screenshots/25-azure-app-settings-cosmos.png)
+
+*Figure 26: Successful deployment of the Azure Function App, with HTTP triggers synchronized and cloud endpoint generated.*\
+![Successful deployment of the Azure Function App](./screenshots/26-azure-deployment-success.png)
+
+*Figure 27: GetAnalysisHistory endpoint successfully retrieving stored analysis results from Azure Cosmos DB.*\
+![History endpoint in Azure](./screenshots/27-history-endpoint-azure.png)
