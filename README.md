@@ -177,3 +177,17 @@ Local testing confirmed that results were successfully stored and visible in the
 
 *Figure 21: Text Analyzer result successfully persisted as a JSON document in Azure Cosmos DB.*\
 ![Stored document in Cosmos DB](./screenshots/21-cosmosdb-stored-document.png)
+
+## Part 14 - Add a History Endpoint
+
+A second HTTP endpoint named `GetAnalysisHistory` was implemented to retrieve previously stored analysis results from Azure Cosmos DB.
+The endpoint supports an optional `limit` query parameter (default value: 10) and returns a JSON response containing the number of records returned and the most recent analysis results.
+
+*Figure 22: Azure Functions Core Tools showing successful discovery of the TextAnalyzer and GetAnalysisHistory endpoints.*\
+![Function discovery](./screenshots/22-history-endpoint-registered.png)
+
+*Figure 23: JSON response returned by the GetAnalysisHistory endpoint.*\
+![History endpoint response](./screenshots/23-history-endpoint-default.png)
+
+*Figure 24: GetAnalysisHistory endpoint tested with the limit query parameter.*\
+![History endpoint with limit](./screenshots/24-history-endpoint-limit.png)
