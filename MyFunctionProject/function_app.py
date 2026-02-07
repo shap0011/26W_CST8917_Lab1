@@ -40,6 +40,70 @@ def get_cosmos_container():
     database = client.get_database_client(db_name)
     return database.get_container_client(container_name)
 
+#==============================================================================
+# CREATE GETANALYSISHISTORY FUNCTION
+#==============================================================================
+
+@app.route(route="GetAnalysisHistory", methods=["GET"])
+def GetAnalysisHistory(req: func.HttpRequest) -> func.HttpResponse:
+    """
+    Returns a history of stored text analysis results.
+
+    Query params:
+      - limit (optional): max number of records to return (default 10)
+    """
+    logging.info("GetAnalysisHistory API was called!")
+
+    # Read & validate limit
+    limit_str = req.params.get("limit")
+    try:
+        limit = int(limit_str) if limit_str else 10
+    except ValueError:
+        limit = 10
+
+    # Keep it reasonable (prevents someone requesting 1 million records)
+    limit = max(1, min(limit, 100))
+
+    try:
+        container = get_cosmos_container()
+
+        # Cosmos SQL query: return newest first (by analyzedAt)
+        query = """
+            SELECT c.id, c.analysis, c.metadata
+            FROM c
+            ORDER BY c.metadata.analyzedAt DESC
+        """
+
+        items = list(
+            container.query_items(
+                query=query,
+                enable_cross_partition_query=True,
+                max_item_count=limit
+            )
+        )
+
+        # Apply limit after query in case max_item_count behaves like a page size
+        results = items[:limit]
+
+        payload = {
+            "count": len(results),
+            "results": results
+        }
+
+        return func.HttpResponse(
+            json.dumps(payload, indent=2),
+            mimetype="application/json",
+            status_code=200
+        )
+
+    except Exception as e:
+        logging.error(f"Failed to query Cosmos DB: {e}")
+        return func.HttpResponse(
+            json.dumps({"error": "Failed to retrieve history", "details": str(e)}, indent=2),
+            mimetype="application/json",
+            status_code=500
+        )
+
 # =============================================================================
 # DEFINE THE TEXT ANALYZER FUNCTION
 # =============================================================================
