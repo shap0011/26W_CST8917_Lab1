@@ -12,3 +12,5 @@
 A demonstration video showing the local and Azure-hosted execution of the TextAnalyzer and GetAnalysisHistory functions is available at the link below:
 
 [Lab1 26W CST8917 Serverless Application](https://youtu.be/_MjCEI88foA?si=-6D_hphHPNvdnGn9)
+
+[<< Back to README.md](/README.md)
