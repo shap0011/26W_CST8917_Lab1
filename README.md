@@ -7,6 +7,16 @@
 
 ---
 
+## Deliverables
+
+[Function Code](./MyFunctionProject/function_app.py)
+[Requirements](./MyFunctionProject/requirements.txt)
+[Database Documentation](DATABASE_CHOICE.md)
+[Demo Video Link](DEMO.md)
+[README](README.md)
+
+---
+
 ## Part 1 & Part 2 - Prerequisites & Update Azure Functions Core Tools
 
 Required Software & Azure Functions Core Tools
