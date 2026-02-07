@@ -9,11 +9,11 @@
 
 ## Deliverables
 
-[Function Code](./MyFunctionProject/function_app.py)
-[Requirements](./MyFunctionProject/requirements.txt)
-[Database Documentation](DATABASE_CHOICE.md)
-[Demo Video Link](DEMO.md)
-[README](README.md)
+☑️ [Function Code](./MyFunctionProject/function_app.py)
+☑️ [Requirements](./MyFunctionProject/requirements.txt)
+☑️ [Database Documentation](DATABASE_CHOICE.md)
+☑️ [Demo Video Link](DEMO.md)
+☑️ [README](README.md)
 
 ---
 
